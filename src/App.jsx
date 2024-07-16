@@ -46,19 +46,27 @@ function App() {
   const playSound = (src) => {
     return new Promise((resolve, reject) => {
       const audio = new Audio(src);
-      audio.play();
   
       audio.onloadedmetadata = () => {
         const duration = audio.duration;
-        setTimeout(() => {
-          audio.pause();
-          audio.currentTime = 0; // Reset the audio for future playback
-          resolve();
-        }, (duration - 0.09) * 1000); // Play until 0.2 seconds before the end
+        const cutTime = 0.3;
+  
+        // Set the current time to 0.2 seconds to skip the start
+        audio.currentTime = cutTime;
+  
+        audio.play().then(() => {
+          setTimeout(() => {
+            audio.pause();
+            audio.currentTime = 0; // Reset the audio for future playback
+            resolve();
+          }, (duration - cutTime - cutTime) * 1000); // Play until 0.2 seconds before the end
+        }).catch((e) => {
+          reject(new Error(`Failed to play audio: ${src}`));
+        });
       };
   
       audio.onerror = (e) => {
-        reject(new Error(`Failed to play audio: ${src}`));
+        reject(new Error(`Failed to load audio: ${src}`));
       };
   
       audio.onended = resolve; // In case the audio naturally ends before the timeout
@@ -111,6 +119,28 @@ function App() {
   ];
 
   const filteredHeader = selectedCategory ? [selectedCategory] : defaultHeader;
+
+  const nextCategory = () => {
+    if (selectedCategory == null) {
+      setSelectedCategory(Category[0]);
+    } else {
+      const currentIndex = Category.findIndex(category => category.nama_category === selectedCategory.nama_category);
+      const nextIndex = (currentIndex + 1) % Category.length;
+      setSelectedCategory(Category[nextIndex]);
+    }
+  };
+
+  const backCategory = () => {
+  
+    if (selectedCategory == null) {
+      setScene(2);
+    } else {
+      const currentIndex = Category.findIndex(category => category.nama_category === selectedCategory.nama_category);
+      const nextIndex = (currentIndex - 1) % Category.length;
+      setSelectedCategory(Category[nextIndex]);
+    }
+    
+  };
 
   return (
     <>  
@@ -172,10 +202,15 @@ function App() {
               </div>
             ))}
           </div>
+          <div className='navigation-container'>
+          <div className='back' onClick={()=>backCategory()} alt="arrow">
+              <img src={arrow} alt="arrow" />
+          </div>
+
           <div className='category-container'>
             {Category.map((category, index) => (
               <div
-                style={{backgroundImage: `url(${category.img})`, backgroundSize: 'cover'}} 
+                style={{backgroundImage: `url(${category.img})`, backgroundSize: 'cover',backgroundPosition:'center'}} 
                 className={selectedCategory && selectedCategory.nama_category === category.nama_category ? 'selected' : 'category-card'}
                 key={index}
                 onClick={() => handleCategoryClick(category)}
@@ -184,6 +219,12 @@ function App() {
               </div>
             ))}
           </div>
+
+          <div className='next' onClick={()=>nextCategory()} alt="arrow"> 
+          <img src={arrow} alt="arrow" />
+          </div>
+          </div>
+          
         </div>
       </div>
     </>

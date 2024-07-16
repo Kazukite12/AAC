@@ -34,7 +34,10 @@ function App() {
     const alreadyExists = boxs.some(existingBox => existingBox.nama_box === box.nama_box);
     if (!alreadyExists) {
       setBoxs([...boxs, box]);
+      const audio = new Audio(box.sound);
+      audio.play()
     }
+
   };
 
   const playSoundsSequentially = async () => {

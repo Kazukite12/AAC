@@ -11,10 +11,10 @@ import bocil from "./assets/gambar/Desain/Button/bocil.png"
 import header from "./assets/gambar/Header/Header 1.png"
 import arrow from "./assets/gambar/Desain/Button/Button Next-Back.png"
 
-import audioAku from './assets/audio/Aku.mp3';
-import audioKamu from './assets/audio/Kamu.mp3';
-import audioIya from './assets/audio/Iya.mp3';
-import audioTidak from './assets/audio/Tidak.mp3';
+import audioAku from './assets/audio/Aku.m4a';
+import audioKamu from './assets/audio/Kamu.m4a';
+import audioIya from './assets/audio/Iya.m4a';
+import audioTidak from './assets/audio/Tidak.m4a';
 
 import imgAku from './assets/gambar/Desain/Button/Aku.png';
 import imgKamu from './assets/gambar/Desain/Button/Kamu.png';
@@ -42,15 +42,26 @@ function App() {
       await playSound(boxs[i].sound);
     }
   };
-
+  
   const playSound = (src) => {
     return new Promise((resolve, reject) => {
       const audio = new Audio(src);
       audio.play();
-      audio.onended = resolve;
+  
+      audio.onloadedmetadata = () => {
+        const duration = audio.duration;
+        setTimeout(() => {
+          audio.pause();
+          audio.currentTime = 0; // Reset the audio for future playback
+          resolve();
+        }, (duration - 0.09) * 1000); // Play until 0.2 seconds before the end
+      };
+  
       audio.onerror = (e) => {
         reject(new Error(`Failed to play audio: ${src}`));
       };
+  
+      audio.onended = resolve; // In case the audio naturally ends before the timeout
     });
   };
 

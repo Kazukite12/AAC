@@ -1,10 +1,10 @@
 
 //Kegiatan
-import audioMakan from "../assets/audio/Makan.m4a"
-import audioMinum from "../assets/audio/Minum.m4a"
-import audioTidur from "../assets/audio/Tidur.m4a"
-import audioPergi from "../assets/audio/Pergi.m4a"
-import audioMandi from "../assets/audio/Mandi.m4a"
+import audioMakan from "../assets/audio/Makan.mp3"
+import audioMinum from "../assets/audio/Minum.mp3"
+import audioTidur from "../assets/audio/Tidur.mp3"
+import audioPergi from "../assets/audio/Pergi.mp3"
+import audioMandi from "../assets/audio/Mandi.mp3"
 
 import imgMakan from "../assets/gambar/Desain/Button/Makan.png"
 import imgMinum from "../assets/gambar/Desain/Button/Minum.png"
@@ -17,12 +17,12 @@ import imgMandi from "../assets/gambar/Desain/Button/Mandi.png"
 
 
 //makanan
-import audioNasi from "../assets/audio/Nasi.m4a"
-import audioAirPutih from "../assets/audio/Air putih.m4a"
-import audioSayur from "../assets/audio/Sayur.m4a"
-import audioSusu from "../assets/audio/Susu.m4a"
-import audioBuah from "../assets/audio/Buah.m4a"
-import AudioRoti from "../assets/audio/Roti.m4a"
+import audioNasi from "../assets/audio/Nasi.mp3"
+import audioAirPutih from "../assets/audio/Air putih.mp3"
+import audioSayur from "../assets/audio/Sayur.mp3"
+import audioSusu from "../assets/audio/Susu.mp3"
+import audioBuah from "../assets/audio/Buah.mp3"
+import AudioRoti from "../assets/audio/Roti.mp3"
 
 import imgNasi from "../assets/gambar/Desain/Button/Nasi.png"
 import imgAirPutih from "../assets/gambar/Desain/Button/Air Putih.png"
@@ -33,12 +33,12 @@ import imgBuah from "../assets/gambar/Desain/Button/Buah.png"
 //end makanan
 
 //waktu
-import audioPagi from "../assets/audio/Pagi.m4a"
-import audioSiang from "../assets/audio/Siang.m4a"
-import audioMalam from "../assets/audio/Malam.m4a"
-import audioSekarang from "../assets/audio/Sekarang.m4a"
-import audioKemarin from "../assets/audio/Kemarin.m4a"
-import audioBesok from "../assets/audio/Besok.m4a"
+import audioPagi from "../assets/audio/Pagi.mp3"
+import audioSiang from "../assets/audio/Siang.mp3"
+import audioMalam from "../assets/audio/Malam.mp3"
+import audioSekarang from "../assets/audio/Sekarang.mp3"
+import audioKemarin from "../assets/audio/Kemarin.mp3"
+import audioBesok from "../assets/audio/Besok.mp3"
 
 import imgPagi from "../assets/gambar/Desain/Button/Pagi.png"
 import imgSiang from "../assets/gambar/Desain/Button/Siang.png"
@@ -49,11 +49,11 @@ import imgKemarin from "../assets/gambar/Desain/Button/Kemarin.png"
 //end waktu
 
 //tempat
-import audioRumah from "../assets/audio/Rumah.m4a"
-import audioSekolah from "../assets/audio/Sekolah.m4a"
-import audioToilet from "../assets/audio/Toilet.m4a"
-import audioRumahSakit from "../assets/audio/Rumah Sakit.m4a"
-import audioSupermarket from "../assets/audio/Supermarket.m4a"
+import audioRumah from "../assets/audio/Rumah.mp3"
+import audioSekolah from "../assets/audio/Sekolah.mp3"
+import audioToilet from "../assets/audio/Toilet.mp3"
+import audioRumahSakit from "../assets/audio/Rumah Sakit.mp3"
+import audioSupermarket from "../assets/audio/Supermarket.mp3"
 
 import imgRumah from "../assets/gambar/Desain/Button/Rumah.png"
 import imgSekolah from "../assets/gambar/Desain/Button/Sekolah.png"
@@ -63,11 +63,11 @@ import imgSupermarket from "../assets/gambar/Desain/Button/Supermarket.png"
 //end tempat
 
 //tanya
-import audioKapan from "../assets/audio/Kapan.m4a"
-import audioDimana from "../assets/audio/Dimana.m4a"
-import audioSiapa from "../assets/audio/Siapa.m4a"
-import audioApa from "../assets/audio/Apa.m4a"
-import audioBerapa from "../assets/audio/Berapa.m4a"
+import audioKapan from "../assets/audio/Kapan.mp3"
+import audioDimana from "../assets/audio/Dimana.mp3"
+import audioSiapa from "../assets/audio/Siapa.mp3"
+import audioApa from "../assets/audio/Apa.mp3"
+import audioBerapa from "../assets/audio/Berapa.mp3"
 
 import imgKapan from "../assets/gambar/Desain/Button/Kapan.png"
 import imgDimana from "../assets/gambar/Desain/Button/Dimana.png"
@@ -77,12 +77,12 @@ import imgBerapa from "../assets/gambar/Desain/Button/Berapa.png"
 //end tanya
 
 //arah
-import audioAtas from "../assets/audio/Atas.m4a"
-import audioBawah from "../assets/audio/Bawah.m4a"
-import audioKanan from "../assets/audio/Kanan.m4a"
-import audioKiri from "../assets/audio/Kiri.m4a"
-import audioDepan from "../assets/audio/Depan.m4a"
-import audioBelakang from "../assets/audio/Belakang.m4a"
+import audioAtas from "../assets/audio/Atas.mp3"
+import audioBawah from "../assets/audio/Bawah.mp3"
+import audioKanan from "../assets/audio/Kanan.mp3"
+import audioKiri from "../assets/audio/Kiri.mp3"
+import audioDepan from "../assets/audio/Depan.mp3"
+import audioBelakang from "../assets/audio/Belakang.mp3"
 
 import imgAtas from "../assets/gambar/Desain/Button/Atas.png"
 import imgBawah from "../assets/gambar/Desain/Button/Bawah.png"
@@ -94,9 +94,9 @@ import imgDepan from "../assets/gambar/Desain/Button/Depan.png"
 //end arah
 
 //kata sakti
-import audioMaaf from "../assets/audio/Maaf.m4a"
-import audioTolong from "../assets/audio/Tolong.m4a"
-import audioTerimakasih from "../assets/audio/Terima Kasih.m4a"
+import audioMaaf from "../assets/audio/Maaf.mp3"
+import audioTolong from "../assets/audio/Tolong.mp3"
+import audioTerimakasih from "../assets/audio/Terima Kasih.mp3"
 
 import imgMaaf from "../assets/gambar/Desain/Button/Maaf.png"
 import imgTolong from "../assets/gambar/Desain/Button/Tolong.png"
@@ -104,10 +104,10 @@ import imgTerimakasih from "../assets/gambar/Desain/Button/Terima Kasih.png"
 //end kata sakti
 
 //emosi
-import audioSenang from "../assets/audio/Senang.m4a"
-import audionSedih from "../assets/audio/Sedih.m4a"
-import audioMarah from "../assets/audio/Marah.m4a"
-import audioTakut from "../assets/audio/Takut.m4a"
+import audioSenang from "../assets/audio/Senang.mp3"
+import audionSedih from "../assets/audio/Sedih.mp3"
+import audioMarah from "../assets/audio/Marah.mp3"
+import audioTakut from "../assets/audio/Takut.mp3"
 
 import imgSenang from "../assets/gambar/Desain/Button/Senang.png"
 import imgSedih from "../assets/gambar/Desain/Button/Sedih.png"

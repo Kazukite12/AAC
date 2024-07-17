@@ -28,6 +28,8 @@ function App() {
   const [boxs, setBoxs] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
 
+  const [isPlaying, setIsPlaying] = useState(false);
+
   const [scene,setScene] = useState(0)
 
   const handleCardClick = (box) => {
@@ -41,9 +43,14 @@ function App() {
   };
 
   const playSoundsSequentially = async () => {
+    if (isPlaying) return; // Prevent multiple plays
+
+    setIsPlaying(true);
     for (let i = 0; i < boxs.length; i++) {
       await playSound(boxs[i].sound);
     }
+
+    setIsPlaying(false);
   };
   
   const playSound = (src) => {
@@ -192,7 +199,7 @@ function App() {
           
             
           </div>
-          <div onClick={playSoundsSequentially} className='play'>
+          <div onClick={isPlaying ? null : playSoundsSequentially} className='play'>
               <img src={arrow} alt="arrow" />
           </div>
 

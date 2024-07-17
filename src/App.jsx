@@ -21,11 +21,21 @@ import imgKamu from './assets/gambar/Desain/Button/Kamu.png';
 import imgIya from './assets/gambar/Desain/Button/Ya.png';
 import imgTidak from './assets/gambar/Desain/Button/Tidak.png';
 
+import defaultTulisan from './assets/Tulisan.png'
+import defaultLogo from './assets/Logo AAC.png'
+
 import Category from './data/category';
+
+import Mulai from './assets/gambar/Desain/Button/Mulai.png'
+import MulaiText from './assets/Mulai.png'
 import Data from './data/data';
 
 function App() {
   const [boxs, setBoxs] = useState([]);
+
+  const [username,setUsername]=useState('')
+
+  const [firstHeader,setFirstHeader] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -90,6 +100,7 @@ function App() {
   const handleCategoryClick = (category) => {
     if (selectedCategory && selectedCategory.nama_category === category.nama_category) {
       setSelectedCategory(null);
+      setFirstHeader(true)
     } else {
       setSelectedCategory(category);
     }
@@ -101,7 +112,7 @@ function App() {
 
   const defaultHeader = [
     {
-      header:header,
+      header:null,
     }
   ]
   
@@ -133,17 +144,24 @@ function App() {
   const nextCategory = () => {
     if (selectedCategory == null) {
       setSelectedCategory(Category[0]);
+      setFirstHeader(false)
     } else {
       const currentIndex = Category.findIndex(category => category.nama_category === selectedCategory.nama_category);
       const nextIndex = (currentIndex + 1) % Category.length;
+      setFirstHeader(false)
       setSelectedCategory(Category[nextIndex]);
     }
   };
 
   const backCategory = () => {
+
+    if (selectedCategory == Category[0]) {
+      setFirstHeader(true)
+    } 
   
     if (selectedCategory == null) {
       setScene(2);
+      setFirstHeader(true)
     } else {
       const currentIndex = Category.findIndex(category => category.nama_category === selectedCategory.nama_category);
       const nextIndex = (currentIndex - 1) % Category.length;
@@ -155,15 +173,16 @@ function App() {
   return (
     <>  
 
-    <div className={scene===0?"second-screen":"hide"} onClick={()=> setScene(2)}>
-
+    <div className={scene===0?"second-screen":"hide"} >
+        <img src={Mulai}onClick={()=> setScene(2)}/>
+        <img style={{width:'50%'}} src={MulaiText}onClick={()=> setScene(2)}/>
     </div>
     <div className={scene ===2?"third-screen":"hide"}>
         <div className='form-container'>
           <div className='input-wrapper'>
           <label><img src={imgNamaku} /></label>
             <div style={{background:'white',padding:'10px',borderRadius:'25px'}}>
-            <input type='text' />
+            <input type='text' value={username} onChange={(e)=>setUsername(e.target.value)} />
 
             </div>
           </div>
@@ -183,11 +202,28 @@ function App() {
         </div>
     </div>
       <div className={scene == 3?'main-container':'main-container hide'}>
-        <div className='top-container'>
-        {filteredHeader.map((item, index) => (
-            <img src={item.header} key={index} alt="header" />
-          ))}
-        </div>
+      <div className='top-container'>
+      {firstHeader ? (
+  <div className='default-header'>
+      <div className='image-container'>
+        <img src={defaultLogo} />
+      </div>
+      <div className='text-container'>
+        <img src={defaultTulisan} />
+        <p>Hai {username} mau ngapain dulu nih?</p>
+      </div>
+  </div>
+) : (
+  filteredHeader.map((item, index) => (
+    <div 
+      key={index} 
+      style={{ backgroundImage: `url(${item.header})`, backgroundSize: 'cover' }}
+    >
+    </div>
+  ))
+)}
+  
+</div>
         <div className='bottom-container'>
           <div className='input-container'>
           <div className='input-card'>

@@ -14,10 +14,18 @@
 }
 
 .second-screen {
-  background-image: url("./assets/gambar/Desain/Background/Background Mulai.png");
+  background-image: url("./assets/Hal 2.png");
   background-size: cover;
   width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
+}
+
+.second-screen img {
+  width: 25%;
 }
 
 .third-screen {
@@ -86,6 +94,8 @@ bottom:170px;
   background: white;
   color: black;
   border: none;
+  font-weight: 800;
+  font-size: 18px;
   border-bottom-style: dashed;
 ; 
 width: 110px;
@@ -116,8 +126,61 @@ width: 110px;
   border-radius: 0 0 25px 25px;
 }
 
-.top-container img{
-  width:95% ;
+
+.top-container *{
+  width:360px ;
+  height:150px;
+  border-radius: 25px;
+}
+
+.default-header {
+  display: flex;
+  background: #A4DAEE;
+  width: 360px;
+  border-radius: 25px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.image-container {
+  width: 50%;
+  display:flex;
+  align-items: center;
+}
+
+.image-container img {
+  width: 165px;
+  height: 165px;
+  margin-bottom: 15px;
+}
+
+.text-container {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: black;
+  text-align: justify;
+  justify-content: center;
+}
+
+.text-container img {
+  max-width: 100%; /* Ensure the image doesn't overflow */
+  height: auto; /* Maintain image aspect ratio */
+  display: block; /* Optional: Ensure image behaves as a block element */
+}
+
+.text-container p {
+  margin-top: 0px; /* Optional: Add margin for spacing */
+  width: 90%;
+  font-weight: 600;
+  font-size: 16px;
+
+  text-align: center;
+}
+.default-container  {
+  display: flex;
 }
 
 .bottom-container {
@@ -240,3 +303,4 @@ body {
   align-items: center;
   justify-content: center;
 }
+

@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
@@ -29,6 +29,9 @@ import Category from './data/category';
 import Mulai from './assets/gambar/Desain/Button/Mulai.png'
 import MulaiText from './assets/Mulai.png'
 import Data from './data/data';
+
+import mulaiSound from './assets/audio/Mulai.mp3'
+import selamatDatang from './assets/audio/Selamat datang.mp3'
 
 function App() {
   const [boxs, setBoxs] = useState([]);
@@ -62,6 +65,21 @@ function App() {
 
     setIsPlaying(false);
   };
+
+
+
+  const playMulai = () => {
+    const audio = new Audio(mulaiSound);
+    audio.currentTime = 0.5;
+    audio.play();
+    setScene(2);
+    
+    // Wait for the first audio to finish before playing the second one
+    audio.addEventListener('ended', () => {
+        const selamatsDatang = new Audio(selamatDatang);
+        selamatsDatang.play();
+    });
+}
   
   const playSound = (src) => {
     return new Promise((resolve, reject) => {
@@ -174,8 +192,9 @@ function App() {
     <>  
 
     <div className={scene===0?"second-screen":"hide"} >
-        <img src={Mulai}onClick={()=> setScene(2)}/>
-        <img style={{width:'50%'}} src={MulaiText}onClick={()=> setScene(2)}/>
+  
+        <img src={Mulai} onClick={playMulai}/>
+        <img style={{width:'50%'}} src={MulaiText} onClick={playMulai}/>
     </div>
     <div className={scene ===2?"third-screen":"hide"}>
         <div className='form-container'>
